@@ -47,6 +47,16 @@
   white-space: pre-wrap;
   align-items: center;
 }
+.signup{
+  width: 247px;
+  position: relative;
+  white-space: pre-wrap;
+  align-items: center;
+}
+.signup:hover{
+  color: #007BFF;
+  cursor: pointer;
+}
 .accountOptions {
   width: 411px;
   flex-direction: row;

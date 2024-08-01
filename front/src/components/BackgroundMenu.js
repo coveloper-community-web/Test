@@ -4,7 +4,6 @@ import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 const BackgroundMenu = ({ className = "" }) => {
-
   const [userID, setuserID] = useState("");
   const [userPW, setuserPW] = useState("");
   const navigate = useNavigate();

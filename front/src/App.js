@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Login from "./pages/Login";
 import Welcome from "./Welcom";
+import Join from "./pages/Join";
 
 function App() {
   const action = useNavigationType();
@@ -48,6 +49,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/welcome" element={<Welcome />} />
+      <Route path="/join" element={<Join />} />
     </Routes>
   );
 }

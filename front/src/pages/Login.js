@@ -1,7 +1,16 @@
 import BackgroundMenu from "../components/BackgroundMenu";
 import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  //회원가입 페이지로 이동
+  function handleSignupClick() {
+    console.log("sign up");
+    navigate('/join');
+  }
+
   return (
     <div className={styles.login}>
       <div className={styles.loginInner}>
@@ -14,7 +23,7 @@ const Login = () => {
       </div>
       <BackgroundMenu />
       <div className={styles.accountOptions}>
-        <div className={styles.div}>
+        <div className={styles.signup} onClick={handleSignupClick}>
           회원가입
         </div>
       </div>
