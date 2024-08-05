@@ -17,7 +17,7 @@ const Join = () => {
           </div>
         </div>
       </div>
-        <InputFields />
+      <InputFields />
     </div>
   );
 };

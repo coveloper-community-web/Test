@@ -1,6 +1,6 @@
 import BackgroundMenu from "../components/BackgroundMenu";
 import styles from "./Login.module.css";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ const Login = () => {
   //회원가입 페이지로 이동
   function handleSignupClick() {
     console.log("sign up");
-    navigate('/join');
+    navigate("/join");
   }
 
   return (
