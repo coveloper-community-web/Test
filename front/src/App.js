@@ -50,6 +50,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/welcome" element={<Welcome />} />
       <Route path="/join" element={<Join />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }

@@ -4,28 +4,29 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const navigate = useNavigate();
-
 const BackgroundMenu = ({ className = "" }) => {
   const [userID, setuserID] = useState("");
   const [userPW, setuserPW] = useState("");
 
+  const navigate = useNavigate();
+
   async function sendUserIDPW() {
     try {
       const response = await axios({
-        url: "test/axiosTest.do",
+        url: "/api/members/register",
         method: "post",
         data: {
-          userID,
-          userPW,
+          username: userID,
+          password: userPW,
         },
+        withCredentials: true, //쿠키 전송
         baseURL: "http://localhost:8080",
       });
 
-      if (response.data.success) {
+      if (response.data) {
         console.log("로그인 성공");
         //로그인 성공 시, 메인페이지로 이동
-        navigate("/main");
+        navigate("/welcome");
       } else {
         console.log("로그인 실패");
         alert(response.data.message);
@@ -40,10 +41,7 @@ const BackgroundMenu = ({ className = "" }) => {
     event.preventDefault();
     console.log("ID : ", userID);
     console.log("PW : ", userPW);
-    //여기서 DB로 데이터 보내고 비교 등, 나머지 처리함
-    //로그인 성공하면
-
-    navigate("/welcome"); //이동
+    sendUserIDPW(); //DB로 데이터 보냄
   }
 
   return (

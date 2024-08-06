@@ -47,14 +47,14 @@
   white-space: pre-wrap;
   align-items: center;
 }
-.signup{
+.signup {
   width: 247px;
   position: relative;
   white-space: pre-wrap;
   align-items: center;
 }
-.signup:hover{
-  color: #007BFF;
+.signup:hover {
+  color: #007bff;
   cursor: pointer;
 }
 .accountOptions {

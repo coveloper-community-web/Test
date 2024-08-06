@@ -5,8 +5,6 @@ import styles_join from "../pages/Join.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
-
 const InputFields = ({ className = "" }) => {
   const [userID, setuserID] = useState("");
   const [userPW1, setuserPW1] = useState("");
@@ -16,6 +14,8 @@ const InputFields = ({ className = "" }) => {
   const [userTrack1, setuserTrack1] = useState("");
   const [userTrack2, setuserTrack2] = useState("");
 
+  const navigate = useNavigate();
+
   //서버로 데이터 보내는 함수(예시로 작성한 것임)
   async function sendUserInfo() {
     //비동기 처리(async)
@@ -24,17 +24,17 @@ const InputFields = ({ className = "" }) => {
         url: "/api/members/register",
         method: "post",
         data: {
-          userID,
-          userPW1,
-          userNickName,
-          userName,
-          userTrack1,
-          userTrack2,
+          username: userID,
+          password: userPW1,
+          nickname: userNickName,
+          name: userName,
+          track1: userTrack1,
+          track2: userTrack2,
         },
         baseURL: "http://localhost:8080",
       });
 
-      if (response.data.success) {
+      if (response.data) {
         console.log("회원가입 성공");
         //회원가입 성공 시, 로그인 페이지로 리디이렉션
         navigate("/login");
