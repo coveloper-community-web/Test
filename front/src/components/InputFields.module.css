@@ -1,0 +1,227 @@
+.div {
+  display: inline-block;
+  min-width: 54px;
+}
+.div,
+.div1,
+.div2 {
+  position: relative;
+}
+.div1 {
+  display: inline-block;
+  min-width: 67px;
+}
+.div2 {
+  align-self: stretch;
+}
+.div3,
+.div4 {
+  position: relative;
+  display: inline-block;
+  min-width: 54px;
+}
+.div4 {
+  min-width: 36px;
+}
+.nameInput {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-12xs);
+  text-align: left;
+}
+.div5 {
+  flex: 1;
+  position: relative;
+}
+.inputLabels {
+  width: 52px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-12xs);
+  box-sizing: border-box;
+  text-align: left;
+}
+.div6 {
+  position: relative;
+  display: inline-block;
+  min-width: 52px;
+}
+.credentials,
+.inputContainer,
+.inputLabels1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.inputLabels1 {
+  flex-direction: row;
+  padding: 0 var(--padding-11xs);
+  text-align: left;
+}
+.credentials,
+.inputContainer {
+  flex-direction: column;
+}
+.credentials {
+  align-self: stretch;
+  gap: var(--gap-19xl-3);
+}
+.inputContainer {
+  width: 114px;
+  padding: var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+}
+.frameChild,
+.frameChild1,
+.frameInner,
+.frameItem,
+.rectangleInput {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  height: 38px;
+  position: relative;
+  border-radius: var(--br-10xs);
+  box-sizing: border-box;
+  min-width: 160px;
+}
+.frameChild,
+.frameInner,
+.frameItem,
+.rectangleInput {
+  align-self: stretch;
+}
+.frameChild1 {
+  flex: 1;
+}
+.rectangleWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs) 0 var(--padding-12xs);
+}
+.frameChild2 {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  height: 38px;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-10xs);
+  box-sizing: border-box;
+  min-width: 160px;
+}
+.rectangleContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-10xs);
+}
+.frameChild3 {
+  border: 1px solid var(--color-gray-200);
+  outline: 0;
+  background-color: transparent;
+  height: 38px;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-10xs);
+  box-sizing: border-box;
+  min-width: 160px;
+}
+.rectangleFrame,
+.rectangleParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangleFrame {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-11xs) 0 var(--padding-12xs);
+}
+.rectangleParent {
+  flex: 1;
+  flex-direction: column;
+  padding: 0 var(--padding-sm) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-4xl);
+  min-width: 184px;
+}
+.checkbox {
+  height: 38px;
+  width: 72px;
+  position: absolute;
+  margin: 0 !important;
+  right: -12px;
+  bottom: -11px;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-darkslateblue-400);
+}
+.check {
+  text-decoration: none;
+  position: relative;
+  color: inherit;
+  display: inline-block;
+  min-width: 49px;
+  z-index: 1;
+}
+.checkboxContainer,
+.checkboxContainerWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.checkboxContainer {
+  flex-direction: row;
+  position: relative;
+}
+.checkboxContainerWrapper {
+  flex-direction: column;
+  padding: var(--padding-3xs) 0 0;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-black);
+}
+.inputFields,
+.inputFieldsChild {
+  border-radius: var(--br-3xs);
+  border: 2.5px solid var(--color-darkslateblue-200);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.inputFieldsChild {
+  height: 478px;
+  width: 626px;
+  position: relative;
+  display: none;
+}
+.inputFields {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-13xl) var(--padding-45xl) var(--padding-17xl);
+  gap: var(--gap-3xl);
+  z-index: 2;
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--color-darkslategray);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 675px) {
+  .inputFields {
+    justify-content: center;
+    padding: var(--padding-2xl) var(--padding-13xl) var(--padding-4xl);
+    box-sizing: border-box;
+  }
+}
