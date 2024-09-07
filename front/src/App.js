@@ -11,13 +11,9 @@ import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Main from "./pages/Main2";
 import WriteQnAPost from "./pages/QnAWrite";
-<<<<<<< HEAD
+
 import WriteFindPeople from "./pages/FindPeopleWrite";
 import PostDetail from "./pages/PostDetail";
-=======
-import PostDetail from "./pages/PostDetail";
-
->>>>>>> 2378436ec6093c5a2c7510cedc7ea2402074d648
 import { getUserInfo, isLoggedIn, logout } from "./utils/auth";
 /**
  * getUserInfo() : 토큰제출하고, 사용자 정보 가져옴
@@ -122,10 +118,7 @@ function App() {
         element={<Login onLoginSuccess={handleLoginSuccess} />}
       />
       <Route path="/writeqna" element={<WriteQnAPost />} />
-<<<<<<< HEAD
       <Route path="/writefindpeople" element={<WriteFindPeople />} />
-=======
->>>>>>> 2378436ec6093c5a2c7510cedc7ea2402074d648
       <Route path="/posts/:id" element={<PostDetail />} />
     </Routes>
   );
