@@ -1,0 +1,150 @@
+.div {
+  width: 320px;
+  height: 153px;
+  position: relative;
+  border-radius: var(--br-mini);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.p {
+  margin: 0;
+}
+.div1 {
+  width: 169px;
+  position: relative;
+  font-weight: 300;
+  display: inline-block;
+  z-index: 2;
+}
+.loginMessageParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-37xl) 0 var(--padding-38xl);
+}
+.loginButtonBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-darkslateblue-300);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+.div2 {
+  position: absolute;
+  top: 12px;
+  left: 118px;
+  font-size: var(--font-size-mini);
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  z-index: 3;
+}
+.loginButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 41px;
+  position: relative;
+}
+.div3,
+.div4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div3 {
+  width: 54px;
+  position: relative;
+  min-width: 54px;
+  z-index: 2;
+}
+.div4 {
+  width: 11px;
+}
+.div4,
+.div5,
+.div7 {
+  position: relative;
+  z-index: 2;
+}
+.div5 {
+  flex: 1;
+  display: inline-block;
+  min-width: 64px;
+}
+.div7 {
+  width: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 41px;
+  cursor: pointer;
+}
+.parent {
+  flex: 1;
+  flex-direction: row;
+  gap: var(--gap-smi-5);
+}
+.accountOptions,
+.loginButtons,
+.loginMessage,
+.parent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.accountOptions {
+  width: 269px;
+  flex-direction: row;
+  padding: 0 var(--padding-lgi);
+  box-sizing: border-box;
+}
+.loginButtons,
+.loginMessage {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-4xs);
+  font-size: var(--font-size-2xs);
+  color: var(--color-gray-100);
+}
+.loginMessage {
+  border-radius: var(--br-mini);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  align-items: flex-end;
+  padding: var(--padding-xl) var(--padding-lg) var(--padding-sm);
+  gap: var(--gap-base);
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-mini);
+  color: var(--color-darkslategray-300);
+  font-family: var(--font-inter);
+}
+.whatIwrote {
+  cursor: pointer;
+}
+.logoutBtn {
+  cursor: pointer;
+}
+@media screen and (max-width: 450px) {
+  .loginMessageParent {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

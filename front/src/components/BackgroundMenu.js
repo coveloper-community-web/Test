@@ -1,10 +1,13 @@
+/**
+ * 로그인 페이지로 이동했을 때 컴포넌트
+ */
 import PropTypes from "prop-types";
 import styles from "./BackgroundMenu.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BackgroundMenu = ({ className = "" }) => {
+const BackgroundMenu = ({ className = "", onLoginSuccess }) => {
   const [userID, setuserID] = useState("");
   const [userPW, setuserPW] = useState("");
 
@@ -13,23 +16,29 @@ const BackgroundMenu = ({ className = "" }) => {
   async function sendUserIDPW() {
     try {
       const response = await axios({
-        url: "/api/members/register",
+        url: "/api/members/login",
         method: "post",
         data: {
-          username: userID,
+          email: userID,
           password: userPW,
         },
         withCredentials: true, //쿠키 전송
         baseURL: "http://localhost:8080",
       });
 
-      if (response.data) {
+      let token =
+        response.headers["Authorization"] || response.headers["authorization"];
+
+      if (token) {
         console.log("로그인 성공");
-        //로그인 성공 시, 메인페이지로 이동
-        navigate("/welcome");
+        if (onLoginSuccess) {
+          onLoginSuccess(token); //App.js로 토큰 전달해줌, 그러면 handleLoginSuccess함수에서 메인페이지로 리다이렉션 해줌
+        } else {
+          alert("onLoginSuccess is undefined");
+        }
       } else {
-        console.log("로그인 실패");
-        alert(response.data.message);
+        console.log("로그인 실패 : 토큰을 찾을 수 없음.");
+        alert(response.data.message || "로그인 실패 : 토큰을 찾을 수 없음.");
       }
     } catch (error) {
       console.error("Error sending user info", error);
@@ -41,7 +50,7 @@ const BackgroundMenu = ({ className = "" }) => {
     event.preventDefault();
     console.log("ID : ", userID);
     console.log("PW : ", userPW);
-    sendUserIDPW(); //DB로 데이터 보냄
+    sendUserIDPW(); //DB로 데이터 보냄(로그인 요청 보냄)
   }
 
   return (

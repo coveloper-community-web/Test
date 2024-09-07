@@ -1,3 +1,6 @@
+/*
+ * 회원가입하는 페이지
+ */
 import InputFields from "../components/InputFields";
 import styles from "./Join.module.css";
 
