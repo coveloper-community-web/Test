@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getUserInfo } from "../utils/auth";
+import "./QnAWrite.css";
 
 function WriteQnAPost() {
   const [title, setTitle] = useState("");
@@ -59,10 +60,10 @@ function WriteQnAPost() {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <h2>QnA글쓰기</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-field">
           <label htmlFor="title">제목:</label>
           <input
             type="text"
@@ -72,7 +73,7 @@ function WriteQnAPost() {
             required
           />
         </div>
-        <div>
+        <div className="form-field">
           <label htmlFor="content">내용:</label>
           <textarea
             id="content"

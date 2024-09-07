@@ -1,0 +1,78 @@
+/* 폼 전체를 감싸는 컨테이너 */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 세로로 가운데 정렬 */
+  align-items: center; /* 가로로 가운데 정렬 */
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 650px; /* 페이지의 최대 너비 설정 */
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* 화면 중앙으로 위치 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 제목과 내용 입력 필드 */
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 647px; /* 고정된 너비 설정 */
+  max-width: 100%; /* 화면이 좁아질 때는 부모 너비에 맞추기 */
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* 텍스트 영역 크기 조절 */
+.form-container textarea {
+  height: 200px;
+  resize: vertical;
+}
+
+/* 제출 버튼 스타일 */
+.form-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* 제목 스타일 */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 폼 내부의 각 필드 정렬 */
+.form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
