@@ -58,7 +58,6 @@ function AllPostsContent() {
               <br></br>
               <span>작성일: {post.createdAt}</span>
             </footer>
-            <hr></hr>
           </article>
         ))}
       </section>

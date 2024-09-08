@@ -14,6 +14,7 @@ function PostDetail() {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [upvoteCount, setUpVoteCount] = useState(0);
 
   useEffect(() => {
     fetchPostDetails();
@@ -32,8 +33,30 @@ function PostDetail() {
         }
       );
       setPost(response.data);
+      setUpVoteCount(response.data.upvoteCount);
     } catch (error) {
       console.error("Error fetching post details", error);
+    }
+  }
+
+  async function handleUpvote() {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        `http://localhost:8080/api/board/post/${id}/vote`,
+        {}, // 서버로 요청할 때 필요한 데이터가 없으면 빈 객체 전달
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setPost((prevPost) => ({
+        ...prevPost,
+        upvoteCount: response.data.upvoteCount, // 서버에서 반환된 추천수로 상태 업데이트
+      }));
+    } catch (error) {
+      console.error("Error upvoting post", error);
     }
   }
 
@@ -116,6 +139,10 @@ function PostDetail() {
           <br />
           <span>작성일: {post.createdAt}</span>
         </footer>
+        <button className="upvote-button" onClick={handleUpvote}>
+          추천
+        </button>
+        <div>추천수 : {post.upvoteCount}</div>
       </div>
 
       <section className="comments-section">
@@ -139,6 +166,9 @@ function PostDetail() {
                 <br />
                 <span>작성일: {comment.createdAt}</span>
               </footer>
+              <button className="upvote-button" onClick={handleUpvote}>
+                추천
+              </button>
             </div>
           ))
         ) : (
