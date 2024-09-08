@@ -4,6 +4,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { prism } from "react-syntax-highlighter/dist/esm/styles/prism"; // 스택오버플로우 유사 스타일
+import Markdown from "markdown-to-jsx";
 import "./PostDetail.css";
 
 function PostDetail() {
@@ -80,13 +83,34 @@ function PostDetail() {
     }
   }
 
+  // 커스텀 코드 블록 렌더링
+  const CodeBlock = ({ children, className }) => {
+    const language = className?.replace("lang-", "") || "javascript"; // 기본적으로 JavaScript로 설정
+    return (
+      <SyntaxHighlighter language={language} style={prism}>
+        {children}
+      </SyntaxHighlighter>
+    );
+  };
+
   if (!post) return <div>Loading...</div>;
 
   return (
     <div className="post-detail-container">
       <div className="post-content">
         <h2>{post.title}</h2>
-        <p>{post.content}</p>
+        {/* 게시물 내용을 마크다운으로 렌더링 */}
+        <Markdown
+          options={{
+            overrides: {
+              code: {
+                component: CodeBlock, // 코드 블록 처리
+              },
+            },
+          }}
+        >
+          {post.content}
+        </Markdown>
         <footer>
           <span>작성자: {post.authorName}</span>
           <br />
@@ -99,7 +123,17 @@ function PostDetail() {
         {comments.length > 0 ? (
           comments.map((comment) => (
             <div key={comment.id} className="comment">
-              <p>{comment.content}</p>
+              <Markdown
+                options={{
+                  overrides: {
+                    code: {
+                      component: CodeBlock, // 코드 블록 처리
+                    },
+                  },
+                }}
+              >
+                {comment.content}
+              </Markdown>
               <footer>
                 <span>작성자: {comment.authorName}</span>
                 <br />
