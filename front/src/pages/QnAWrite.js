@@ -63,6 +63,16 @@ function WriteQnAPost() {
     }
   }
 
+  // Custom code block renderer for markdown-to-jsx
+  const CodeBlock = ({ children, className }) => {
+    const language = className?.replace("lang-", "") || "javascript"; // 기본적으로 JavaScript로 설정
+    return (
+      <SyntaxHighlighter language={language} style={prism}>
+        {children}
+      </SyntaxHighlighter>
+    );
+  };
+
   return (
     <div className="form-container">
       <h2>QnA글쓰기</h2>
@@ -86,17 +96,21 @@ function WriteQnAPost() {
             required
           />
         </div>
-        <div className="form-field">
-          <label htmlFor="code">코드:</label>
-          <textarea
-            id="code"
-            placeholder="백틱 세 번으로 코드 블록을 입력하세요. 예: ```코드```"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </div>
         <div className="markdown-preview">
-          <Markdown>{content}</Markdown>
+          <Markdown
+            options={{
+              overrides: {
+                code: {
+                  component: CodeBlock,
+                  props: {
+                    language: "javascript", // 기본적으로 javascript로 설정
+                  },
+                },
+              },
+            }}
+          >
+            {content}
+          </Markdown>
         </div>
         <button type="submit">제출</button>
       </form>
