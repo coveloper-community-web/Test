@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getUserInfo } from "../utils/auth";
+import "./FindPeopleWrite.css";
 
 function WriteFindPeople() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
+  const [projectType, setProjectType] = useState("캡스톤"); // 프로젝트 유형 상태
+  const [teamSize, setTeamSize] = useState(1); // 팀 인원
+  const [currentSize, setCurrentSize] = useState(1); // 현재 인원
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,8 +21,9 @@ function WriteFindPeople() {
       }
     }
     fetchUser();
-  });
+  }, []);
 
+  // 글 작성 제출
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -27,10 +32,12 @@ function WriteFindPeople() {
         title,
         content,
         author,
+        projectType,
+        teamSize,
+        currentSize,
       });
 
       if (response.status === 201) {
-        //백엔드는 성공적으로 저장하면 201 created를 반환함
         alert("글이 성공적으로 작성되었습니다.");
         navigate("/"); // 메인 페이지로 이동
       } else {
@@ -43,10 +50,10 @@ function WriteFindPeople() {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <h2>구인게시판 글쓰기</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-field">
           <label htmlFor="title">제목:</label>
           <input
             type="text"
@@ -56,35 +63,43 @@ function WriteFindPeople() {
             required
           />
         </div>
-        <div>
-          <label for="options">프로젝트 유형:</label>
-          <select id="options" onchange="showSelectedValue()">
-            <option value="option1">캡스톤</option>
-            <option value="option2">교내 대회</option>
-            <option value="option3">외부 대회</option>
-            <option value="option4">개인 프로젝트</option>
-            <option value="option5">기타</option>
+        <div className="form-field">
+          <label htmlFor="projectType">프로젝트 유형:</label>
+          <select
+            id="projectType"
+            value={projectType}
+            onChange={(e) => setProjectType(e.target.value)}
+          >
+            <option value="캡스톤">캡스톤</option>
+            <option value="교내 대회">교내 대회</option>
+            <option value="외부 대회">외부 대회</option>
+            <option value="개인 프로젝트">개인 프로젝트</option>
+            <option value="기타">기타</option>
           </select>
         </div>
-        <div>
-          <h7>팀 인원 :</h7>
+        <div className="form-field">
+          <label htmlFor="teamSize">팀 인원:</label>
           <input
             type="number"
-            id="memberCount"
-            value="1"
+            id="teamSize"
+            value={teamSize}
+            onChange={(e) => setTeamSize(Number(e.target.value))}
             min="1"
             max="10"
-          ></input>
+            required
+          />
         </div>
-        <div>
-          <h7>현재 인원:</h7>
+        <div className="form-field">
+          <label htmlFor="currentSize">현재 인원:</label>
           <input
             type="number"
-            id="memberCountNow"
-            value="1"
+            id="currentSize"
+            value={currentSize}
+            onChange={(e) => setCurrentSize(Number(e.target.value))}
             min="1"
-            max="10"
-          ></input>
+            max={teamSize} // 팀 인원보다 큰 숫자는 입력하지 못하게 설정
+            required
+          />
         </div>
         <div>
           <label htmlFor="content">내용:</label>
