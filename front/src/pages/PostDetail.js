@@ -146,6 +146,15 @@ function PostDetail() {
       </div>
 
       <section className="comments-section">
+        <div className="new-comment">
+          <textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            placeholder="댓글을 입력하세요"
+          ></textarea>
+          <button onClick={handleCommentSubmit}>댓글 달기</button>
+        </div>
+
         <h3>댓글</h3>
         {comments.length > 0 ? (
           comments.map((comment) => (
@@ -166,23 +175,11 @@ function PostDetail() {
                 <br />
                 <span>작성일: {comment.createdAt}</span>
               </footer>
-              <button className="upvote-button" onClick={handleUpvote}>
-                추천
-              </button>
             </div>
           ))
         ) : (
           <p>댓글이 없습니다.</p>
         )}
-
-        <div className="new-comment">
-          <textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="댓글을 입력하세요"
-          ></textarea>
-          <button onClick={handleCommentSubmit}>댓글 달기</button>
-        </div>
       </section>
     </div>
   );

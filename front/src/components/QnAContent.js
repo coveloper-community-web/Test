@@ -69,7 +69,6 @@ function QnAContent({ isLoggedIn }) {
                 <br></br>
                 <span>작성일: {question.createdAt}</span>
               </footer>
-              <hr></hr>
             </article>
           ))
         ) : (
