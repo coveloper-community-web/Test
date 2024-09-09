@@ -59,6 +59,21 @@ const Main = ({ isLoggedIn, userInfo }) => {
                 userInfo={userInfo}
                 onClickMyPosts={() => onClickMenu("내가 쓴 글")}
               />
+              <div
+                className={styles.navbarItems1}
+                onClick={() => onClickMenu("홈")}
+              >
+                {/**홈 버튼 */}
+                <div className={styles.navbarItemsChild} />
+                <img
+                  className={styles.f7houseFillIcon1}
+                  alt=""
+                  src="/f7housefill.svg"
+                />
+                <div className={styles.container}>
+                  <div className={styles.div6}>홈</div>
+                </div>
+              </div>
               <div className={styles.monthWeeksGroup}>
                 <div
                   className={styles.monthWeeks2}
@@ -74,21 +89,6 @@ const Main = ({ isLoggedIn, userInfo }) => {
                   />
                   <div className={styles.menuItems}>
                     <div className={styles.div5}>전체 글</div>
-                  </div>
-                </div>
-                <div
-                  className={styles.navbarItems1}
-                  onClick={() => onClickMenu("홈")}
-                >
-                  {/**홈 버튼 */}
-                  <div className={styles.navbarItemsChild} />
-                  <img
-                    className={styles.f7houseFillIcon1}
-                    alt=""
-                    src="/f7housefill.svg"
-                  />
-                  <div className={styles.container}>
-                    <div className={styles.div6}>홈</div>
                   </div>
                 </div>
                 <div
