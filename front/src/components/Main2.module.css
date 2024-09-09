@@ -454,7 +454,7 @@
   border-radius: var(--br-8xs);
   background-color: var(--color-darkslateblue-600);
   flex-direction: column;
-  padding: 147px 81px 170px;
+  padding: 40px 81px 170px;
 }
 .headerDivider {
   border: 0;
