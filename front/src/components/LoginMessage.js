@@ -7,15 +7,16 @@ import styles from "./LoginMessage.module.css";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../utils/auth";
 
-const LoginMessage = ({ className = "", isLoggedIn, userInfo }) => {
+const LoginMessage = ({
+  className = "",
+  isLoggedIn,
+  userInfo,
+  onClickMyPosts,
+}) => {
   const navigate = useNavigate();
 
   function handleLoginBtn() {
     navigate("/login");
-  }
-
-  function onClickMyWrote() {
-    navigate("/qnawrite");
   }
 
   function onClickLogout() {
@@ -44,7 +45,7 @@ const LoginMessage = ({ className = "", isLoggedIn, userInfo }) => {
         <div className={styles.logoutBtn} onClick={onClickLogout}>
           로그아웃
         </div>
-        <div className={styles.whatIwrote} onClick={onClickMyWrote}>
+        <div className={styles.whatIwrote} onClick={onClickMyPosts}>
           내가 쓴 글
         </div>
       </div>
@@ -80,6 +81,7 @@ LoginMessage.propTypes = {
     track1: PropTypes.string.isRequired,
     track2: PropTypes.string.isRequired,
   }),
+  onClickMyPosts: PropTypes.func.isRequired, // MyPosts 클릭 함수 추가
 };
 
 export default LoginMessage;

@@ -30,6 +30,8 @@ const Main = ({ isLoggedIn, userInfo }) => {
         return <QnAContent isLoggedIn />;
       case "구인게시판":
         return <FindPeopleContent />;
+      case "내가 쓴 글":
+        return <MyPosts userId={userInfo.id} />;
       default:
         return <HomeContent />;
     }
@@ -52,7 +54,11 @@ const Main = ({ isLoggedIn, userInfo }) => {
               </div>
             </div>
             <div className={styles.chatMessages}>
-              <LoginMessage isLoggedIn={isLoggedIn} userInfo={userInfo} />
+              <LoginMessage
+                isLoggedIn={isLoggedIn}
+                userInfo={userInfo}
+                onClickMyPosts={() => onClickMenu("내가 쓴 글")}
+              />
               <div className={styles.monthWeeksGroup}>
                 <div
                   className={styles.monthWeeks2}
