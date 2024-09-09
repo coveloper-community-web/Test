@@ -4,10 +4,10 @@ import axios from "axios";
 import { getUserInfo } from "../utils/auth";
 import "./FindPeopleWrite.css";
 
-function WriteFindPeople() {
+function WriteFindPeople({ isLoggedIn }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [author, setAuthor] = useState("");
+  const [authorName, setAuthorName] = useState("");
   const [projectType, setProjectType] = useState("캡스톤"); // 프로젝트 유형 상태
   const [teamSize, setTeamSize] = useState(1); // 팀 인원
   const [currentSize, setCurrentSize] = useState(1); // 현재 인원
@@ -17,7 +17,7 @@ function WriteFindPeople() {
     async function fetchUser() {
       const userInfo = await getUserInfo();
       if (userInfo) {
-        setAuthor(userInfo.nickname);
+        setAuthorName(userInfo.nickname);
       }
     }
     fetchUser();
@@ -28,14 +28,22 @@ function WriteFindPeople() {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/api/posts", {
-        title,
-        content,
-        author,
-        projectType,
-        teamSize,
-        currentSize,
-      });
+      const response = await axios.post(
+        "http://localhost:8080/api/posts",
+        {
+          title,
+          content,
+          authorName: authorName,
+          projectType,
+          teamSize,
+          currentSize,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.status === 201) {
         alert("글이 성공적으로 작성되었습니다.");

@@ -29,7 +29,7 @@ const Main = ({ isLoggedIn, userInfo }) => {
       case "QnA":
         return <QnAContent isLoggedIn />;
       case "구인게시판":
-        return <FindPeopleContent />;
+        return <FindPeopleContent isLoggedIn />;
       case "내가 쓴 글":
         return <MyPosts userId={userInfo.id} />;
       default:
