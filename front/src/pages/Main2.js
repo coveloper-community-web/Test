@@ -181,29 +181,7 @@ const Main = ({ isLoggedIn, userInfo }) => {
           <div className={styles.frameWrapper}>{renderContent()}</div>
         </section>
         <div className={styles.frameContainer}>
-          <div className={styles.navbarItemsParent1}>
-            <div className={styles.navbarItems6}>
-              <div className={styles.navbarItemsChild1} />
-              <img
-                className={styles.icsharpSearchIcon}
-                alt=""
-                src="/icsharpsearch1.svg"
-              />
-            </div>
-            <div className={styles.chatBody}>
-              <div className={styles.div9} />
-              <textarea className={styles.chatBodyChild} rows={14} cols={15} />
-              <div className={styles.inputBoxWrapper}>
-                <input className={styles.inputBox} type="text" />
-              </div>
-            </div>
-            <div className={styles.reactionButton}>
-              <div className={styles.calendarButton} />
-              <div className={styles.profileButton} />
-              <div className={styles.div10} />
-              <div className={styles.reactionButtonChild} />
-            </div>
-          </div>
+          {/*여기에 우측 사이드 메뉴 들어갈 부분 */}
         </div>
       </main>
       <div className={styles.div11} />
